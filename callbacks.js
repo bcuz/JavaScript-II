@@ -28,20 +28,38 @@ function getLength(arr, cb) {
 }
 
 
+// const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+
+// getLength(items, function(x) {
+//   console.log(x);  
+// })
+
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
   return cb(arr[arr.length-1])
 }
+
+// last(items, function(x) {
+//   console.log(x);  
+// })
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
   return cb(x+y)
 }
 
+// sumNums(5, 2, function(x) {
+//   console.log(x);  
+// })
+
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(x*y)
 }
+
+// multiplyNums(5, 2, function(x) {
+//   console.log(x);  
+// })
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
@@ -49,7 +67,7 @@ function contains(item, list, cb) {
   return list.includes(item) ? cb(true): cb(false)
 }
 
-// contains('Notebook', items, function(x) {
+// contains('book', items, function(x) {
 //   console.log(x);  
 // })
 /* STRETCH PROBLEM */
@@ -59,10 +77,12 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 
-  let unique = array.filter((item, index) => array.indexOf(item) == index)
-  return cb(unique)
+  // indexOf will find the first index of a given item. if there 
+  // is a duplicate, indexOf result wont match the current index of the loop
+  let uniqueItems = array.filter((item, index) => array.indexOf(item) == index)
+  return cb(uniqueItems)
 }
 
-// removeDuplicates([1, 2, 2, 3], function(x) {
-//   console.log(x);  
-// })
+removeDuplicates([1, 2, 2, 3], function(x) {
+  console.log(x);  
+})
